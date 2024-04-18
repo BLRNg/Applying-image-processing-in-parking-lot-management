@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Paking_SlotModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="role_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="user_role">
+    <Key>
+      <PropertyRef Name="user_name" />
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="user_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="role_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="user_name" />
+    </Key>
+    <Property Name="user_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Salt" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="PasswordHash" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="Paking_SlotEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="roles" EntityType="Self.role" />
+    <EntitySet Name="user_role" EntityType="Self.user_role" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <FunctionImport Name="sp_laneIn">
+      <Parameter Name="LoginID" Mode="In" Type="Int32" />
+      <Parameter Name="PlateNumber" Mode="In" Type="String" />
+      <Parameter Name="CardNo" Mode="In" Type="String" />
+      <Parameter Name="CheckTime" Mode="In" Type="DateTime" />
+      <Parameter Name="CustomerName" Mode="InOut" Type="String" />
+      <Parameter Name="Message" Mode="InOut" Type="String" />
+      <Parameter Name="PlateNum" Mode="InOut" Type="String" />
+      <Parameter Name="total_Amount" Mode="InOut" Type="String" />
+      <Parameter Name="Time" Mode="InOut" Type="String" />
+      <Parameter Name="LanceTye" Mode="InOut" Type="String" />
+      <Parameter Name="PhotoCustomerIn" Mode="InOut" Type="String" />
+      <Parameter Name="PhotoLicensePlateNumberIN" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_laneOut">
+      <Parameter Name="LoginID" Mode="In" Type="Int32" />
+      <Parameter Name="PlateNumber" Mode="In" Type="String" />
+      <Parameter Name="CardNo" Mode="In" Type="String" />
+      <Parameter Name="CheckTime" Mode="In" Type="DateTime" />
+      <Parameter Name="CustomerName" Mode="InOut" Type="String" />
+      <Parameter Name="Message" Mode="InOut" Type="String" />
+      <Parameter Name="PlateNum" Mode="InOut" Type="String" />
+      <Parameter Name="total_Amount" Mode="InOut" Type="String" />
+      <Parameter Name="Time" Mode="InOut" Type="String" />
+      <Parameter Name="LanceTye" Mode="InOut" Type="String" />
+      <Parameter Name="PhotoCustomerIn" Mode="InOut" Type="String" />
+      <Parameter Name="PhotoLicensePlateNumberIN" Mode="InOut" Type="String" />
+      <Parameter Name="PhotoCustomerOut" Mode="In" Type="String" />
+      <Parameter Name="PhotoLicensePlateNumberOut" Mode="In" Type="String" />
+      <Parameter Name="isMatch" Mode="InOut" Type="Boolean" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

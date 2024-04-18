@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Paking_SlotModelStoreContainer" CdmEntityContainer="Paking_SlotEntities">
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="Paking_SlotModel.role">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_role">
+      <EntityTypeMapping TypeName="Paking_SlotModel.user_role">
+        <MappingFragment StoreEntitySet="user_role">
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="Paking_SlotModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_laneIn" FunctionName="Paking_SlotModel.Store.sp_laneIn" />
+    <FunctionImportMapping FunctionImportName="sp_laneOut" FunctionName="Paking_SlotModel.Store.sp_laneOut" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Paking_SlotModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_name" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="user_role">
+          <Key>
+            <PropertyRef Name="user_name" />
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="user_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="role_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_name" />
+          </Key>
+          <Property Name="user_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Salt" Type="varbinary(max)" />
+          <Property Name="PasswordHash" Type="varbinary(max)" />
+        </EntityType>
+        <Function Name="sp_laneIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LoginID" Type="int" Mode="In" />
+          <Parameter Name="PlateNumber" Type="varchar" Mode="In" />
+          <Parameter Name="CardNo" Type="varchar" Mode="In" />
+          <Parameter Name="CheckTime" Type="datetime" Mode="In" />
+          <Parameter Name="CustomerName" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="Message" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="PlateNum" Type="varchar" Mode="InOut" />
+          <Parameter Name="total_Amount" Type="varchar" Mode="InOut" />
+          <Parameter Name="Time" Type="varchar" Mode="InOut" />
+          <Parameter Name="LanceTye" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="PhotoCustomerIn" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="PhotoLicensePlateNumberIN" Type="nvarchar" Mode="InOut" />
+        </Function>
+        <Function Name="sp_laneOut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LoginID" Type="int" Mode="In" />
+          <Parameter Name="PlateNumber" Type="varchar" Mode="In" />
+          <Parameter Name="CardNo" Type="varchar" Mode="In" />
+          <Parameter Name="CheckTime" Type="datetime" Mode="In" />
+          <Parameter Name="CustomerName" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="Message" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="PlateNum" Type="varchar" Mode="InOut" />
+          <Parameter Name="total_Amount" Type="varchar" Mode="InOut" />
+          <Parameter Name="Time" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="LanceTye" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="PhotoCustomerIn" Type="varchar" Mode="InOut" />
+          <Parameter Name="PhotoLicensePlateNumberIN" Type="varchar" Mode="InOut" />
+          <Parameter Name="PhotoCustomerOut" Type="varchar" Mode="In" />
+          <Parameter Name="PhotoLicensePlateNumberOut" Type="varchar" Mode="In" />
+          <Parameter Name="isMatch" Type="bit" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="Paking_SlotModelStoreContainer">
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_role" EntityType="Self.user_role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Paking_SlotModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="user_role">
+          <Key>
+            <PropertyRef Name="user_name" />
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="user_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_name" />
+          </Key>
+          <Property Name="user_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Salt" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PasswordHash" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="Paking_SlotEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="roles" EntityType="Self.role" />
+          <EntitySet Name="user_role" EntityType="Self.user_role" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <FunctionImport Name="sp_laneIn">
+            <Parameter Name="LoginID" Mode="In" Type="Int32" />
+            <Parameter Name="PlateNumber" Mode="In" Type="String" />
+            <Parameter Name="CardNo" Mode="In" Type="String" />
+            <Parameter Name="CheckTime" Mode="In" Type="DateTime" />
+            <Parameter Name="CustomerName" Mode="InOut" Type="String" />
+            <Parameter Name="Message" Mode="InOut" Type="String" />
+            <Parameter Name="PlateNum" Mode="InOut" Type="String" />
+            <Parameter Name="total_Amount" Mode="InOut" Type="String" />
+            <Parameter Name="Time" Mode="InOut" Type="String" />
+            <Parameter Name="LanceTye" Mode="InOut" Type="String" />
+            <Parameter Name="PhotoCustomerIn" Mode="InOut" Type="String" />
+            <Parameter Name="PhotoLicensePlateNumberIN" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_laneOut">
+            <Parameter Name="LoginID" Mode="In" Type="Int32" />
+            <Parameter Name="PlateNumber" Mode="In" Type="String" />
+            <Parameter Name="CardNo" Mode="In" Type="String" />
+            <Parameter Name="CheckTime" Mode="In" Type="DateTime" />
+            <Parameter Name="CustomerName" Mode="InOut" Type="String" />
+            <Parameter Name="Message" Mode="InOut" Type="String" />
+            <Parameter Name="PlateNum" Mode="InOut" Type="String" />
+            <Parameter Name="total_Amount" Mode="InOut" Type="String" />
+            <Parameter Name="Time" Mode="InOut" Type="String" />
+            <Parameter Name="LanceTye" Mode="InOut" Type="String" />
+            <Parameter Name="PhotoCustomerIn" Mode="InOut" Type="String" />
+            <Parameter Name="PhotoLicensePlateNumberIN" Mode="InOut" Type="String" />
+            <Parameter Name="PhotoCustomerOut" Mode="In" Type="String" />
+            <Parameter Name="PhotoLicensePlateNumberOut" Mode="In" Type="String" />
+            <Parameter Name="isMatch" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Paking_SlotModelStoreContainer" CdmEntityContainer="Paking_SlotEntities">
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="Paking_SlotModel.role">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="role_name" ColumnName="role_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_role">
+            <EntityTypeMapping TypeName="Paking_SlotModel.user_role">
+              <MappingFragment StoreEntitySet="user_role">
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="Paking_SlotModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_laneIn" FunctionName="Paking_SlotModel.Store.sp_laneIn" />
+          <FunctionImportMapping FunctionImportName="sp_laneOut" FunctionName="Paking_SlotModel.Store.sp_laneOut" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

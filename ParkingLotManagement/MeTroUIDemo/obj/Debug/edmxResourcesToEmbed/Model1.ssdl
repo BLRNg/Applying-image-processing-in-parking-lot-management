@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Paking_SlotModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="user_role">
+    <Key>
+      <PropertyRef Name="user_name" />
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="user_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="role_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="user_name" />
+    </Key>
+    <Property Name="user_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Salt" Type="varbinary(max)" />
+    <Property Name="PasswordHash" Type="varbinary(max)" />
+  </EntityType>
+  <Function Name="sp_laneIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoginID" Type="int" Mode="In" />
+    <Parameter Name="PlateNumber" Type="varchar" Mode="In" />
+    <Parameter Name="CardNo" Type="varchar" Mode="In" />
+    <Parameter Name="CheckTime" Type="datetime" Mode="In" />
+    <Parameter Name="CustomerName" Type="nvarchar" Mode="InOut" />
+    <Parameter Name="Message" Type="nvarchar" Mode="InOut" />
+    <Parameter Name="PlateNum" Type="varchar" Mode="InOut" />
+    <Parameter Name="total_Amount" Type="varchar" Mode="InOut" />
+    <Parameter Name="Time" Type="varchar" Mode="InOut" />
+    <Parameter Name="LanceTye" Type="nvarchar" Mode="InOut" />
+    <Parameter Name="PhotoCustomerIn" Type="nvarchar" Mode="InOut" />
+    <Parameter Name="PhotoLicensePlateNumberIN" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <Function Name="sp_laneOut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoginID" Type="int" Mode="In" />
+    <Parameter Name="PlateNumber" Type="varchar" Mode="In" />
+    <Parameter Name="CardNo" Type="varchar" Mode="In" />
+    <Parameter Name="CheckTime" Type="datetime" Mode="In" />
+    <Parameter Name="CustomerName" Type="nvarchar" Mode="InOut" />
+    <Parameter Name="Message" Type="nvarchar" Mode="InOut" />
+    <Parameter Name="PlateNum" Type="varchar" Mode="InOut" />
+    <Parameter Name="total_Amount" Type="varchar" Mode="InOut" />
+    <Parameter Name="Time" Type="nvarchar" Mode="InOut" />
+    <Parameter Name="LanceTye" Type="nvarchar" Mode="InOut" />
+    <Parameter Name="PhotoCustomerIn" Type="varchar" Mode="InOut" />
+    <Parameter Name="PhotoLicensePlateNumberIN" Type="varchar" Mode="InOut" />
+    <Parameter Name="PhotoCustomerOut" Type="varchar" Mode="In" />
+    <Parameter Name="PhotoLicensePlateNumberOut" Type="varchar" Mode="In" />
+    <Parameter Name="isMatch" Type="bit" Mode="InOut" />
+  </Function>
+  <EntityContainer Name="Paking_SlotModelStoreContainer">
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_role" EntityType="Self.user_role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
