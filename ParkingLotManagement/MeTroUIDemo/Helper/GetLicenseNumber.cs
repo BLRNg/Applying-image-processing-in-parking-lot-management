@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -12,7 +13,7 @@ namespace MeTroUIDemo.Helper
     {
         public static string GetLicenseNumberByUrl(string urlImage, WebClient client)
         {
-            string url = "http://127.0.0.1:5000/get_license_number?url_image=" + Uri.EscapeDataString(urlImage);
+            string url = "http://127.0.0.1:5000/get_license_number?url_image=" + Uri.EscapeDataString(Path.GetFullPath(urlImage));
             try
             {
                 // Deserialize the JSON response into a dynamic object

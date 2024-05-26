@@ -1,0 +1,5 @@
+C:\Users\trant\source\repos\MeTroUIDemo\RawInput\bin\Debug\RawInput.dll
+C:\Users\trant\source\repos\MeTroUIDemo\RawInput\bin\Debug\RawInput.pdb
+C:\Users\trant\source\repos\MeTroUIDemo\RawInput\obj\Debug\RawInput.csproj.CoreCompileInputs.cache
+C:\Users\trant\source\repos\MeTroUIDemo\RawInput\obj\Debug\RawInput.dll
+C:\Users\trant\source\repos\MeTroUIDemo\RawInput\obj\Debug\RawInput.pdb

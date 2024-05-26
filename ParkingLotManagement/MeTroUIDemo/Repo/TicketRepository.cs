@@ -482,5 +482,39 @@ namespace MeTroUIDemo.Repo
 
 
         }
+
+        public string sp_validationTimeSlot(int ShiftID, string startPackingShifts, string endPackingShifts)
+        {
+            // Create a DataTable to hold the result
+            DataTable dataTable = new DataTable();
+
+            // You can use a SQLDataAdapter to fill the DataSet
+            using (var command = dbContext.Database.Connection.CreateCommand())
+            {
+                //command.CommandText = "sp_statisticLineChartByDay";
+                command.CommandText = "sp_validationTimeSlot";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@ShiftID", ShiftID));
+                command.Parameters.Add(new SqlParameter("@startPackingShifts", startPackingShifts));
+                command.Parameters.Add(new SqlParameter("@endPackingShifts", endPackingShifts));
+
+                dbContext.Database.Connection.Open();
+                var reader = command.ExecuteReader();
+
+                // Load the result set into the DataSet
+                // Load the result set into the DataSet, specifying the columns
+                dataTable.Load(reader);
+                dbContext.Database.Connection.Close();
+            }
+            if (dataTable.Rows.Count > 0)
+            {
+                DataRow r = dataTable.Rows[0];
+
+                return r[0].ToString();
+            }
+
+            return "";
+        }
     }
 }

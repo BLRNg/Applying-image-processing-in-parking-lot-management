@@ -1,0 +1,5 @@
+C:\Users\trant\Downloads\rawinput_latest (1)\rawinput latest\RawInput\bin\x64\Debug\RawInput.dll
+C:\Users\trant\Downloads\rawinput_latest (1)\rawinput latest\RawInput\bin\x64\Debug\RawInput.pdb
+C:\Users\trant\Downloads\rawinput_latest (1)\rawinput latest\RawInput\obj\x64\Debug\RawInput.csproj.CoreCompileInputs.cache
+C:\Users\trant\Downloads\rawinput_latest (1)\rawinput latest\RawInput\obj\x64\Debug\RawInput.dll
+C:\Users\trant\Downloads\rawinput_latest (1)\rawinput latest\RawInput\obj\x64\Debug\RawInput.pdb

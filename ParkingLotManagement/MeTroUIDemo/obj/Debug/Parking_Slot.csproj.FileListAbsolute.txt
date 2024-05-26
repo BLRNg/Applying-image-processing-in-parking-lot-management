@@ -110,7 +110,6 @@ C:\Users\trant\source\repos\MeTroUIDemo\MeTroUIDemo\bin\Debug\System.Text.Encodi
 C:\Users\trant\source\repos\MeTroUIDemo\MeTroUIDemo\bin\Debug\System.Text.Json.xml
 C:\Users\trant\source\repos\MeTroUIDemo\MeTroUIDemo\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\trant\source\repos\MeTroUIDemo\MeTroUIDemo\bin\Debug\System.ValueTuple.xml
-C:\Users\trant\source\repos\MeTroUIDemo\MeTroUIDemo\obj\Debug\Parking_Slot.csproj.AssemblyReference.cache
 C:\Users\trant\source\repos\MeTroUIDemo\MeTroUIDemo\obj\Debug\MeTroUIDemo.LaneInOut.resources
 C:\Users\trant\source\repos\MeTroUIDemo\MeTroUIDemo\obj\Debug\MeTroUIDemo.Login.resources
 C:\Users\trant\source\repos\MeTroUIDemo\MeTroUIDemo\obj\Debug\MeTroUIDemo.MainForm.resources
@@ -206,3 +205,6 @@ C:\Users\trant\source\repos\MeTroUIDemo\MeTroUIDemo\bin\Debug\CefSharp.Core.pdb
 C:\Users\trant\source\repos\MeTroUIDemo\MeTroUIDemo\bin\Debug\CefSharp.Core.xml
 C:\Users\trant\source\repos\MeTroUIDemo\MeTroUIDemo\bin\Debug\CefSharp.WinForms.pdb
 C:\Users\trant\source\repos\MeTroUIDemo\MeTroUIDemo\bin\Debug\CefSharp.WinForms.xml
+C:\Users\trant\source\repos\MeTroUIDemo\MeTroUIDemo\obj\Debug\Parking_Slot.csproj.AssemblyReference.cache
+C:\Users\trant\source\repos\MeTroUIDemo\MeTroUIDemo\bin\Debug\RawInput.dll
+C:\Users\trant\source\repos\MeTroUIDemo\MeTroUIDemo\bin\Debug\RawInput.pdb

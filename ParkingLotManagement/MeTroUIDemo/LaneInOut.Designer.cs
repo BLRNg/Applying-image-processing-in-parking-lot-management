@@ -47,6 +47,7 @@ namespace MeTroUIDemo
             this.picturePlateInBox = new System.Windows.Forms.PictureBox();
             this.picturePlateOutBox = new System.Windows.Forms.PictureBox();
             this.arrowPictureBox = new System.Windows.Forms.PictureBox();
+            this.richTextBoxNameReader = new System.Windows.Forms.RichTextBox();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.camera1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePlateInBox)).BeginInit();
@@ -269,11 +270,20 @@ namespace MeTroUIDemo
             this.arrowPictureBox.TabIndex = 16;
             this.arrowPictureBox.TabStop = false;
             // 
+            // richTextBoxNameReader
+            // 
+            this.richTextBoxNameReader.Location = new System.Drawing.Point(1288, 663);
+            this.richTextBoxNameReader.Name = "richTextBoxNameReader";
+            this.richTextBoxNameReader.Size = new System.Drawing.Size(498, 218);
+            this.richTextBoxNameReader.TabIndex = 18;
+            this.richTextBoxNameReader.Text = "";
+            // 
             // LaneInOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1809, 1083);
+            this.Controls.Add(this.richTextBoxNameReader);
             this.Controls.Add(this.arrowPictureBox);
             this.Controls.Add(this.picturePlateOutBox);
             this.Controls.Add(this.picturePlateInBox);
@@ -323,5 +333,6 @@ namespace MeTroUIDemo
         private System.Windows.Forms.PictureBox picturePlateInBox;
         private System.Windows.Forms.PictureBox picturePlateOutBox;
         private System.Windows.Forms.PictureBox arrowPictureBox;
+        private System.Windows.Forms.RichTextBox richTextBoxNameReader;
     }
 }

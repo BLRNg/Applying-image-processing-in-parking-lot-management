@@ -14,20 +14,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DirectShowLib;
-
+using RawInput_dll;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using System.IO;
 
 namespace MeTroUIDemo
 {
     public partial class LaneInOut : MetroFramework.Forms.MetroForm
     {
+        private readonly RawInput _rawinput;
+        private string text;
+        private bool secondTime;
+        const bool CaptureOnlyInForeground = false;
         private IFilterGraph2 filterGraph;
         private ICaptureGraphBuilder2 captureGraphBuilder;
         private IVideoWindow videoWindow;
         private IMediaControl mediaControl;
         private ISampleGrabber sampleGrabber;
         WebClient client;
-        SerialPort serialPort1;
-        Boolean isIn = true;
+       
+       
 
         ObjectParameter CustomerName;
         ObjectParameter Message;
@@ -40,145 +47,168 @@ namespace MeTroUIDemo
         ObjectParameter isMatch;
 
         private UserRepository userRepository;
+        private SettingParamRepo settingParamRepo;
+        private string NameReaderIn;
+        private string NameReaderOut;
         public LaneInOut()
         {
             InitializeComponent();
-            serialPort1 = new SerialPort();
-            serialPort1.PortName = "COM5"; // Change to match your Arduino's COM port
-            serialPort1.BaudRate = 9600; // Must match Arduino's baud rate
-            serialPort1.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
             userRepository = new UserRepository();
-        }
+            settingParamRepo = new SettingParamRepo();
 
-        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+            NameReaderIn = settingParamRepo.sp_SelectSetting("NameReaderIn");
+            NameReaderOut = settingParamRepo.sp_SelectSetting("NameReaderOut");
+
+            text = string.Empty;
+
+            secondTime = false;
+            _rawinput = new RawInput(Handle, CaptureOnlyInForeground);
+            //_rawinput.AddMessageFilter();   // Adding a message filter will cause keypresses to be handled
+            //Win32.DeviceAudit();            // Writes a file DeviceAudit.txt to the current directory
+
+            _rawinput.KeyPressed += OnKeyPressed;
+        }
+        private void OnKeyPressed(object sender, RawInputEventArg e)
         {
-            SerialPort sp = (SerialPort)sender;
-            string data = sp.ReadExisting();
-            //MessageBox.Show(data);
+            if (richTextBoxNameReader.Focused)
+            {
+                richTextBoxNameReader.Text = e.KeyPressEvent.DeviceName;
+                Clipboard.Clear();
+                Clipboard.SetText(e.KeyPressEvent.DeviceName);
+                return;
+            }
+          
+            if (IsAnyControlFocused(this))
+            {
+                //customerNameTile.Text = e.KeyPressEvent.DeviceName;
+                if (!secondTime)
+                {
+                    if(text.Length < 1)
+                    {
+                        customerNameTile.Text = "";
+                        messageValueTile.Text = "";
+                        licenseValueTile.Text = "";
+                        totalAAmountValueTile.Text = "";
+                        timeValueTile.Text = "";
+                        laneValueTile.Text = "";
+                       
+                    }
+
+                  
+                    if (e.KeyPressEvent.VKeyName.Equals("ENTER") )
+                    {
+                        string urlIn = urlImg();
+                        string licenseNumber = GetLicenseNumber.GetLicenseNumberByUrl(urlIn, client);
+                        if(licenseNumber.Equals("No License"))
+                        {
+                            customerNameTile.Text = "";
+                            messageValueTile.Text = "Không phát hiện biển số";
+                            licenseValueTile.Text = "";
+                            totalAAmountValueTile.Text = "";
+                            timeValueTile.Text = "";
+                            laneValueTile.Text = "";
+                            text = "";
+                            return;
+                        }
+                        PhotoCustomerIn.Value = urlIn;
+                        PhotoLicensePlateNumberIN.Value = urlIn;
+
+                        if (NameReaderIn.Equals(e.KeyPressEvent.DeviceName))
+                        {
+                            var result = userRepository.sp_laneIn(1, licenseNumber, text, DateTime.Now, CustomerName, Message, PlateNum, total_Amount, Time,
+                       LanceTye, PhotoCustomerIn, PhotoLicensePlateNumberIN);
+
+                            picturePlateInBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                            picturePlateOutBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                            picturePlateInBox.Image = Image.FromFile(Path.GetFullPath(PhotoLicensePlateNumberIN.Value.ToString()));
+                            picturePlateOutBox.Image = null;
+
+                        }
+                        else if (NameReaderOut.Equals(e.KeyPressEvent.DeviceName))
+                        {
+                            var result = userRepository.sp_laneOut(1, licenseNumber, text, DateTime.Now, CustomerName, Message, PlateNum, total_Amount, Time,
+                             LanceTye, PhotoCustomerIn, PhotoLicensePlateNumberIN, urlIn, urlIn, isMatch);
+                            
+                            picturePlateInBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                            picturePlateOutBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                            picturePlateInBox.Image = Image.FromFile(Path.GetFullPath(PhotoLicensePlateNumberIN.Value.ToString()));
+                            picturePlateOutBox.Image = Image.FromFile(Path.GetFullPath(urlIn));
+
+                        }
+
+
+
+                        customerNameTile.Text = CustomerName.Value.ToString();
+                        messageValueTile.Text = Message.Value.ToString();
+                        licenseValueTile.Text = PlateNum.Value.ToString();
+                        totalAAmountValueTile.Text = total_Amount.Value.ToString();
+                        timeValueTile.Text = Time.Value.ToString();
+                        laneValueTile.Text = LanceTye.Value.ToString();
+                        cardNoValueTile.Text = text;
+
+                       
+                        text = "";
+                    }
+                    else
+                    {
+                       
+
+                        if (e.KeyPressEvent.VKeyName.Equals("BACK") && (text.Length - 1) >=0 )
+                        {
+                            text = text.Remove(text.Length - 1);
+
+                        }
+                        else if (!e.KeyPressEvent.VKeyName.Equals("BACK"))
+                        {
+                            text += e.KeyPressEvent.VKeyName;
+                            text = Regex.Replace(text, @"D", "");
+
+                        }
+
+
+                        cardNoValueTile.Text = text;
+                    }
+
+                    secondTime = true;
+                }
+                else
+                {
+                    secondTime = false;
+                }
+            }
+           
+           
             
-            if (isIn)
-            {
-                data = "r0 03 40 3a fe";
-                isIn = false;
-            }
-            else
-            {
-                data = "r1 03 40 3a fe";
-                isIn = true;
-            }
-           
-           
-            //if (data.Contains("x92"))
-            //    MessageBox.Show(data);
 
-                //if( data.Contains("_") && 2==data.Count(c => c == '_'))
-                //MessageBox.Show(data +" |"+data.Substring(8,19 -5 - 3)+"| "+ data.IndexOf("_") + " " + data.LastIndexOf("_"));
-                if (data.Contains("r"))
-            {
-                string[] parts = data.Split(' ');
-
-                // Join the parts starting from the second element
-                string resultString = string.Join(" ", parts, 1, parts.Length - 1);
-                //MessageBox.Show(resultString);
-                UpdateTextBox(data);
-            }
-
-            //MessageBox.Show("Dau doc 1" + data);
-            //if (data.Contains("Reader1") || data.Contains("Reader0"))
+            //switch (e.KeyPressEvent.Message)
             //{
-            //    //string textAfterReader1 = data.Substring("Reader1".Length).Trim();
-            //    UpdateTextBox(data);
-            //    //MessageBox.Show("Dau doc 1"+textAfterReader1);
+            //    case Win32.WM_KEYDOWN:
+            //        Debug.WriteLine(e.KeyPressEvent.KeyPressState);
+            //        break;
+            //     case Win32.WM_KEYUP:
+            //        Debug.WriteLine(e.KeyPressEvent.KeyPressState);
+            //        break;
             //}
-
-
-
         }
 
-        delegate void UpdateTextBoxDelegate(string text);
-
-        private void UpdateTextBox(string text)
+        private bool IsAnyControlFocused(Control parent)
         {
-            if (cardNoValueTile.InvokeRequired)
+            foreach (Control ctrl in parent.Controls)
             {
-                cardNoValueTile.Invoke(new UpdateTextBoxDelegate(UpdateTextBox), new object[] { text });
-            }
-            else
-            {
-                string[] parts = text.Split(' ');
-                string cardNo = string.Join(" ", parts, 1, parts.Length - 1).TrimEnd('\r', '\n');
-                if (text.Contains("r1"))
+                if (ctrl.Focused || IsAnyControlFocused(ctrl))
                 {
-                    string urlOut = urlImg();
-                    string licenseNumber = GetLicenseNumber.GetLicenseNumberByUrl(urlOut, client);
-
-                    var result = userRepository.sp_laneOut(1, licenseNumber, cardNo, DateTime.Now, CustomerName, Message, PlateNum, total_Amount, Time,
-                LanceTye, PhotoCustomerIn, PhotoLicensePlateNumberIN, urlOut, urlOut, isMatch);
-
-                    customerNameTile.Text = CustomerName.Value.ToString();
-                    messageValueTile.Text = Message.Value.ToString();
-                    licenseValueTile.Text = PlateNum.Value.ToString();
-                    totalAAmountValueTile.Text = total_Amount.Value.ToString();
-                    timeValueTile.Text = Time.Value.ToString();
-                    laneValueTile.Text = LanceTye.Value.ToString();
-                    cardNoValueTile.Text = cardNo;
-
-                    if (Message.Value.ToString().Contains("Xin mời qua"))
-                    {
-                        try
-                        {
-                            serialPort1.Write("x");
-
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "Error");
-                        }
-                    }
-
+                    return true;
                 }
-
-                if (text.Contains("r0"))
-                {
-                    string urlIn = urlImg();
-                    string licenseNumber = GetLicenseNumber.GetLicenseNumberByUrl(urlIn, client);
-                    PhotoCustomerIn.Value = urlIn;
-                    PhotoLicensePlateNumberIN.Value = urlIn;
-                    var result = userRepository.sp_laneIn(1, licenseNumber, cardNo, DateTime.Now, CustomerName, Message, PlateNum, total_Amount, Time,
-                    LanceTye, PhotoCustomerIn, PhotoLicensePlateNumberIN);
-
-                    customerNameTile.Text = CustomerName.Value.ToString();
-                    messageValueTile.Text = Message.Value.ToString();
-                    licenseValueTile.Text = PlateNum.Value.ToString();
-                    totalAAmountValueTile.Text = total_Amount.Value.ToString();
-                    timeValueTile.Text = Time.Value.ToString();
-                    laneValueTile.Text = LanceTye.Value.ToString();
-                    cardNoValueTile.Text = cardNo;
-
-                    if (Message.Value.ToString().Contains("Xin mời qua"))
-                    {
-                        try
-                        {
-                            serialPort1.Write("z");
-
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "Error");
-                        }
-                    }
-
-                }
-
-
-
-
             }
+            return false;
         }
+
 
         private string urlImg()
         {
-            string fileName = @"C:\Users\trant\Downloads\Image\" + ImageNameGenerator.GenerateUniqueImageName(); ;
+            string fileName = @"Image\" + ImageNameGenerator.GenerateUniqueImageName(); ;
             try
             {
                 if (sampleGrabber != null)
@@ -229,14 +259,7 @@ namespace MeTroUIDemo
             isMatch = new ObjectParameter("isMatch", typeof(bool));
 
             client = new WebClient();
-            try
-            {
-                serialPort1.Open(); // Open the serial port
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error");
-            }
+           
             filterGraph = new FilterGraph() as IFilterGraph2;
             captureGraphBuilder = new CaptureGraphBuilder2() as ICaptureGraphBuilder2;
 
@@ -316,8 +339,7 @@ namespace MeTroUIDemo
 
         private void LaneInOut_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (serialPort1.IsOpen)
-                serialPort1.Close(); // Close the serial port when the form is closing
+           
 
             // Stop the preview and release resources
             if (mediaControl != null)
