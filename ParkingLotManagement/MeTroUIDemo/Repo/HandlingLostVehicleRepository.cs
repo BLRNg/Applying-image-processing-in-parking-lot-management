@@ -16,7 +16,37 @@ namespace MeTroUIDemo.Repo
         {
             dbContext = new Paking_SlotEntities();
         }
+        public string sp_ValidateUnitLostVehicleId(string Id)
+        {
+            // Create a DataTable to hold the result
+            DataTable dataTable = new DataTable();
 
+            // You can use a SQLDataAdapter to fill the DataSet
+            using (var command = dbContext.Database.Connection.CreateCommand())
+            {
+                //command.CommandText = "sp_statisticLineChartByDay";
+                command.CommandText = "sp_ValidateUnitLostVehicleId";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@Id", Id));
+
+                dbContext.Database.Connection.Open();
+                var reader = command.ExecuteReader();
+
+                // Load the result set into the DataSet
+                // Load the result set into the DataSet, specifying the columns
+                dataTable.Load(reader);
+                dbContext.Database.Connection.Close();
+            }
+            if (dataTable.Rows.Count > 0)
+            {
+                DataRow r = dataTable.Rows[0];
+
+                return r[0].ToString();
+            }
+
+            return "";
+        }
         public void sp_InsertHandlingLostVehicle(
              int IncidentID ,string CustomerName ,string CustomerAddress ,string CustomerPhoneNumber ,string PlateNumber ,
             string VehicleType,string VehicleColor,string ParkingTime , string ParkingLocation ,string IncidentTime ,

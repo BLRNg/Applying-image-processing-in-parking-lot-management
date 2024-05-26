@@ -41,7 +41,37 @@ namespace MeTroUIDemo.Repo
             return dataTable;
         }
 
+        public string sp_ValidateCardId(string Id)
+        {
+            // Create a DataTable to hold the result
+            DataTable dataTable = new DataTable();
 
+            // You can use a SQLDataAdapter to fill the DataSet
+            using (var command = dbContext.Database.Connection.CreateCommand())
+            {
+                //command.CommandText = "sp_statisticLineChartByDay";
+                command.CommandText = "sp_ValidateCardId";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@Id", Id));
+
+                dbContext.Database.Connection.Open();
+                var reader = command.ExecuteReader();
+
+                // Load the result set into the DataSet
+                // Load the result set into the DataSet, specifying the columns
+                dataTable.Load(reader);
+                dbContext.Database.Connection.Close();
+            }
+            if (dataTable.Rows.Count > 0)
+            {
+                DataRow r = dataTable.Rows[0];
+
+                return r[0].ToString();
+            }
+
+            return "";
+        }
         public void sp_insertCardInfor(
         string cardInforId, int ticketTypeId, int packingSlotID, bool isUsing, bool isMonthlyCard, bool isLock, bool isCardWasCancel)
         {

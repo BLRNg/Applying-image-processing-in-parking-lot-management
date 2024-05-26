@@ -16,7 +16,37 @@ namespace MeTroUIDemo.Repo
         {
             dbContext = new Paking_SlotEntities();
         }
+        public string sp_ValidateUnitLostCardId(string CardId)
+        {
+            // Create a DataTable to hold the result
+            DataTable dataTable = new DataTable();
 
+            // You can use a SQLDataAdapter to fill the DataSet
+            using (var command = dbContext.Database.Connection.CreateCommand())
+            {
+                //command.CommandText = "sp_statisticLineChartByDay";
+                command.CommandText = "sp_ValidateUnitLostCardId";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@CardId", CardId));
+
+                dbContext.Database.Connection.Open();
+                var reader = command.ExecuteReader();
+
+                // Load the result set into the DataSet
+                // Load the result set into the DataSet, specifying the columns
+                dataTable.Load(reader);
+                dbContext.Database.Connection.Close();
+            }
+            if (dataTable.Rows.Count > 0)
+            {
+                DataRow r = dataTable.Rows[0];
+
+                return r[0].ToString();
+            }
+
+            return "";
+        }
         public void sp_InsertHandlingLostCard(
             string LostCardID ,string CardType ,string GuestName,string PlateNumber ,string LostDateTime ,
             string HandlingDateTime ,string HandlingAction ,float PenaltyAmount ,string AdditionalNotes ,string Birthday ,

@@ -211,7 +211,38 @@ namespace MeTroUIDemo.Repo
 
           
         }
+        public string sp_ValidateTicketTypesId(int TicketTypeID,string DayApply)
+        {
+            // Create a DataTable to hold the result
+            DataTable dataTable = new DataTable();
 
+            // You can use a SQLDataAdapter to fill the DataSet
+            using (var command = dbContext.Database.Connection.CreateCommand())
+            {
+                //command.CommandText = "sp_statisticLineChartByDay";
+                command.CommandText = "sp_ValidateTicketTypesId";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@TicketTypeID", TicketTypeID));
+                command.Parameters.Add(new SqlParameter("@DayApply", DayApply));
+
+                dbContext.Database.Connection.Open();
+                var reader = command.ExecuteReader();
+
+                // Load the result set into the DataSet
+                // Load the result set into the DataSet, specifying the columns
+                dataTable.Load(reader);
+                dbContext.Database.Connection.Close();
+            }
+            if (dataTable.Rows.Count > 0)
+            {
+                DataRow r = dataTable.Rows[0];
+
+                return r[0].ToString();
+            }
+
+            return "";
+        }
         public void sp_insertTicketType(
            string TicketTypeName,
            string DayApply,
@@ -253,7 +284,39 @@ namespace MeTroUIDemo.Repo
 
 
         }
+        public string sp_ValidateTicketPricingId(int TicketTypeID, int ShiftID, string DayApply)
+        {
+            // Create a DataTable to hold the result
+            DataTable dataTable = new DataTable();
 
+            // You can use a SQLDataAdapter to fill the DataSet
+            using (var command = dbContext.Database.Connection.CreateCommand())
+            {
+                //command.CommandText = "sp_statisticLineChartByDay";
+                command.CommandText = "sp_ValidateTicketPricingId";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@TicketTypeID", TicketTypeID));
+                command.Parameters.Add(new SqlParameter("@ShiftID", ShiftID));
+                command.Parameters.Add(new SqlParameter("@DayApply", DayApply));
+
+                dbContext.Database.Connection.Open();
+                var reader = command.ExecuteReader();
+
+                // Load the result set into the DataSet
+                // Load the result set into the DataSet, specifying the columns
+                dataTable.Load(reader);
+                dbContext.Database.Connection.Close();
+            }
+            if (dataTable.Rows.Count > 0)
+            {
+                DataRow r = dataTable.Rows[0];
+
+                return r[0].ToString();
+            }
+
+            return "";
+        }
         public void sp_insertTicketPricing(
          int TicketTypeID , int ShiftID , float Price ,float minPrice,float generalPriceForTimeSlot ,
          float overtimePay, string DayApply)

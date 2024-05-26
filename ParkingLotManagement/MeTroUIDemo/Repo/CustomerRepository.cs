@@ -65,7 +65,37 @@ namespace MeTroUIDemo.Repo
 
             return dataTable;
         }
+        public string sp_ValidateCustomerId(string CustomerId)
+        {
+            // Create a DataTable to hold the result
+            DataTable dataTable = new DataTable();
 
+            // You can use a SQLDataAdapter to fill the DataSet
+            using (var command = dbContext.Database.Connection.CreateCommand())
+            {
+                //command.CommandText = "sp_statisticLineChartByDay";
+                command.CommandText = "sp_ValidateCustomerId";
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@CustomerId", CustomerId));
+
+                dbContext.Database.Connection.Open();
+                var reader = command.ExecuteReader();
+
+                // Load the result set into the DataSet
+                // Load the result set into the DataSet, specifying the columns
+                dataTable.Load(reader);
+                dbContext.Database.Connection.Close();
+            }
+            if (dataTable.Rows.Count > 0)
+            {
+                DataRow r = dataTable.Rows[0];
+
+                return r[0].ToString();
+            }
+
+            return "";
+        }
         public void sp_insertcustomer(
             int customerID , string identitycard , string customerName)
         {

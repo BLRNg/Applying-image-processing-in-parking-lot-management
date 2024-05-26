@@ -118,58 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="excelHistoryMonthLy.TileImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAABMFJREFUWEftmHtMW1UYwLs/1MQY9Q+3hQK9PDZN0CwY1AyBkbaXh9mcjIhxA2WA
-        UMHxuLfMbi4bj2xIxEBw0I1s1IlMhKk8utUOhZINEKKDAdsYW5VChRg1zD3YQyif5360plyuBjro+IMv
-        +YXvnn6X+8s5556eHtFyLLVYkxr+iHuG9FmJMsTT2vTgwktFP0Gly/0pVp5MMXQZxch/Ivk4xdIgyZCn
-        WsucE55pstUeLB3mztAqCUtXEZGrhElORohFE/TJinrYaye9VsKGREmU8gMSRq4jIiNCEv/HggqSefM4
-        kTgoYeh2Mky3hB44X1y2+/+1KtJ3hEOcEDDiqgiaE26KIJOrIpCxqk2HNxvqLvSQ+4H+4C2Iy8lAMo/k
-        we6KgjkRXcSCmyJwgkoPftKqtziC75flgV6vR4xGI4yOjs6Jyu9riWDQlGeCbLVVb3EEYwtYKNKokRPN
-        WtC2fwc9AxfhknEAcz695DOnCopj/WFV5POIa0IA91Ao0VbAl4YGzPmoT36+LDgD70QpPB0TjKxL3wi+
-        mZuhXF8N35z9FnM+mtM18xckayCQRRk8laEz2sM/ToJEzT7YUbF/Rrs9TnlJihsr4dr4dRi99jt4Z4Zh
-        m8/uV+HGnVvAhbqpatY9NtziAkD8+gsIlbgBPFOkcLDhM6hu0WLO5/Cp4/MXlOXHgcViQZnkYznYll1b
-        itfXb9+EdXsiZt1jQ2gOFtd/uvBzUNttQKG2K13gRXrRPPYbXhfoNIL1NlzsBMXxL6PEogiGFSTC1NQU
-        WKYskFunRrk/bozBM6qNgvU23ilUQdlxDaJva4aWrnayBl6GK4NGzPn0k/XRIUEOfV8rio3fu4N/s8gw
-        C9XZI921FaL3piCp6ixgyg/AqR+a4Ex3B+Z89J0GxwWjShgU4+Lm3XFYs/MVwTp7nDYHOQ41V6McN9Rc
-        xB3ZI1hnj9ME1+duhXsTf+McrDvXhIKXRn4GD2WIYL0N6a5tELPvPSTtUDYoNXmg62iGs+c7MOdzurPF
-        McGqDh1KGfo7IXB/DIpykV75oWC9jbc/YqGwvBSpaWqA+rZG6L7chy8Kl/PhNhLzFuTWwUnLJAq9qVZi
-        28nzLXg99OcomYvhs+6xITTEhbVHF3aIdT1nUKZneODftojiVGzjYu/Xn8yot2fRBT3YENhUmAwxh1Ug
-        z4+f8VmZoQb0va24iPO/p22sVcjAJ3YaP/Y1eFEVCWW6L6C2VY85n2ONJxybg47CqHOhTluP9PVfAKPp
-        Fxg2m8H8qxlzPsOk3amCLrHrYeUWX8Ql3h/ESYFQQjYLVc31mPMp1d7HOugIQnNwSW1YuR58ivQex3QP
-        BuB2a7oHyVaMRymRd6pgWkkW1NR+hfzY2wUXrvbD4JAJTOYhzPkMDpucK7jkf3a+xGyBcDYaeSN/B2wr
-        ZOZEaM52cE0Kur0yJfgxq55I5JK06VEJK0+VMHQ5+efnFuL4g2xSL5IXRMdBch3plTnhqghqcH93w2ar
-        mnD4Jfk95JYW8pxHhjyWiBcRcQORHhMS+S+cfvwmAtEK7lCSYmURRDab/OKrJ+ImiqEnloagcKzgDnko
-        RialWDlLqCD0kl6/u1QEBYM7BuZOX62Xy/EAQyT6B6HJeG0MDLEuAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="excelHistorySinle.TileImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAABMFJREFUWEftmHtMW1UYwLs/1MQY9Q+3hQK9PDZN0CwY1AyBkbaXh9mcjIhxA2WA
-        UMHxuLfMbi4bj2xIxEBw0I1s1IlMhKk8utUOhZINEKKDAdsYW5VChRg1zD3YQyif5360plyuBjro+IMv
-        +YXvnn6X+8s5556eHtFyLLVYkxr+iHuG9FmJMsTT2vTgwktFP0Gly/0pVp5MMXQZxch/Ivk4xdIgyZCn
-        WsucE55pstUeLB3mztAqCUtXEZGrhElORohFE/TJinrYaye9VsKGREmU8gMSRq4jIiNCEv/HggqSefM4
-        kTgoYeh2Mky3hB44X1y2+/+1KtJ3hEOcEDDiqgiaE26KIJOrIpCxqk2HNxvqLvSQ+4H+4C2Iy8lAMo/k
-        we6KgjkRXcSCmyJwgkoPftKqtziC75flgV6vR4xGI4yOjs6Jyu9riWDQlGeCbLVVb3EEYwtYKNKokRPN
-        WtC2fwc9AxfhknEAcz695DOnCopj/WFV5POIa0IA91Ao0VbAl4YGzPmoT36+LDgD70QpPB0TjKxL3wi+
-        mZuhXF8N35z9FnM+mtM18xckayCQRRk8laEz2sM/ToJEzT7YUbF/Rrs9TnlJihsr4dr4dRi99jt4Z4Zh
-        m8/uV+HGnVvAhbqpatY9NtziAkD8+gsIlbgBPFOkcLDhM6hu0WLO5/Cp4/MXlOXHgcViQZnkYznYll1b
-        itfXb9+EdXsiZt1jQ2gOFtd/uvBzUNttQKG2K13gRXrRPPYbXhfoNIL1NlzsBMXxL6PEogiGFSTC1NQU
-        WKYskFunRrk/bozBM6qNgvU23ilUQdlxDaJva4aWrnayBl6GK4NGzPn0k/XRIUEOfV8rio3fu4N/s8gw
-        C9XZI921FaL3piCp6ixgyg/AqR+a4Ex3B+Z89J0GxwWjShgU4+Lm3XFYs/MVwTp7nDYHOQ41V6McN9Rc
-        xB3ZI1hnj9ME1+duhXsTf+McrDvXhIKXRn4GD2WIYL0N6a5tELPvPSTtUDYoNXmg62iGs+c7MOdzurPF
-        McGqDh1KGfo7IXB/DIpykV75oWC9jbc/YqGwvBSpaWqA+rZG6L7chy8Kl/PhNhLzFuTWwUnLJAq9qVZi
-        28nzLXg99OcomYvhs+6xITTEhbVHF3aIdT1nUKZneODftojiVGzjYu/Xn8yot2fRBT3YENhUmAwxh1Ug
-        z4+f8VmZoQb0va24iPO/p22sVcjAJ3YaP/Y1eFEVCWW6L6C2VY85n2ONJxybg47CqHOhTluP9PVfAKPp
-        Fxg2m8H8qxlzPsOk3amCLrHrYeUWX8Ql3h/ESYFQQjYLVc31mPMp1d7HOugIQnNwSW1YuR58ivQex3QP
-        BuB2a7oHyVaMRymRd6pgWkkW1NR+hfzY2wUXrvbD4JAJTOYhzPkMDpucK7jkf3a+xGyBcDYaeSN/B2wr
-        ZOZEaM52cE0Kur0yJfgxq55I5JK06VEJK0+VMHQ5+efnFuL4g2xSL5IXRMdBch3plTnhqghqcH93w2ar
-        mnD4Jfk95JYW8pxHhjyWiBcRcQORHhMS+S+cfvwmAtEK7lCSYmURRDab/OKrJ+ImiqEnloagcKzgDnko
-        RialWDlLqCD0kl6/u1QEBYM7BuZOX62Xy/EAQyT6B6HJeG0MDLEuAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="paramSettingMenu.TileImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -586,6 +534,58 @@
 </value>
   </data>
   <data name="sp_export_statictisGrossSale.TileImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAABMFJREFUWEftmHtMW1UYwLs/1MQY9Q+3hQK9PDZN0CwY1AyBkbaXh9mcjIhxA2WA
+        UMHxuLfMbi4bj2xIxEBw0I1s1IlMhKk8utUOhZINEKKDAdsYW5VChRg1zD3YQyif5360plyuBjro+IMv
+        +YXvnn6X+8s5556eHtFyLLVYkxr+iHuG9FmJMsTT2vTgwktFP0Gly/0pVp5MMXQZxch/Ivk4xdIgyZCn
+        WsucE55pstUeLB3mztAqCUtXEZGrhElORohFE/TJinrYaye9VsKGREmU8gMSRq4jIiNCEv/HggqSefM4
+        kTgoYeh2Mky3hB44X1y2+/+1KtJ3hEOcEDDiqgiaE26KIJOrIpCxqk2HNxvqLvSQ+4H+4C2Iy8lAMo/k
+        we6KgjkRXcSCmyJwgkoPftKqtziC75flgV6vR4xGI4yOjs6Jyu9riWDQlGeCbLVVb3EEYwtYKNKokRPN
+        WtC2fwc9AxfhknEAcz695DOnCopj/WFV5POIa0IA91Ao0VbAl4YGzPmoT36+LDgD70QpPB0TjKxL3wi+
+        mZuhXF8N35z9FnM+mtM18xckayCQRRk8laEz2sM/ToJEzT7YUbF/Rrs9TnlJihsr4dr4dRi99jt4Z4Zh
+        m8/uV+HGnVvAhbqpatY9NtziAkD8+gsIlbgBPFOkcLDhM6hu0WLO5/Cp4/MXlOXHgcViQZnkYznYll1b
+        itfXb9+EdXsiZt1jQ2gOFtd/uvBzUNttQKG2K13gRXrRPPYbXhfoNIL1NlzsBMXxL6PEogiGFSTC1NQU
+        WKYskFunRrk/bozBM6qNgvU23ilUQdlxDaJva4aWrnayBl6GK4NGzPn0k/XRIUEOfV8rio3fu4N/s8gw
+        C9XZI921FaL3piCp6ixgyg/AqR+a4Ex3B+Z89J0GxwWjShgU4+Lm3XFYs/MVwTp7nDYHOQ41V6McN9Rc
+        xB3ZI1hnj9ME1+duhXsTf+McrDvXhIKXRn4GD2WIYL0N6a5tELPvPSTtUDYoNXmg62iGs+c7MOdzurPF
+        McGqDh1KGfo7IXB/DIpykV75oWC9jbc/YqGwvBSpaWqA+rZG6L7chy8Kl/PhNhLzFuTWwUnLJAq9qVZi
+        28nzLXg99OcomYvhs+6xITTEhbVHF3aIdT1nUKZneODftojiVGzjYu/Xn8yot2fRBT3YENhUmAwxh1Ug
+        z4+f8VmZoQb0va24iPO/p22sVcjAJ3YaP/Y1eFEVCWW6L6C2VY85n2ONJxybg47CqHOhTluP9PVfAKPp
+        Fxg2m8H8qxlzPsOk3amCLrHrYeUWX8Ql3h/ESYFQQjYLVc31mPMp1d7HOugIQnNwSW1YuR58ivQex3QP
+        BuB2a7oHyVaMRymRd6pgWkkW1NR+hfzY2wUXrvbD4JAJTOYhzPkMDpucK7jkf3a+xGyBcDYaeSN/B2wr
+        ZOZEaM52cE0Kur0yJfgxq55I5JK06VEJK0+VMHQ5+efnFuL4g2xSL5IXRMdBch3plTnhqghqcH93w2ar
+        mnD4Jfk95JYW8pxHhjyWiBcRcQORHhMS+S+cfvwmAtEK7lCSYmURRDab/OKrJ+ImiqEnloagcKzgDnko
+        RialWDlLqCD0kl6/u1QEBYM7BuZOX62Xy/EAQyT6B6HJeG0MDLEuAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="excelHistoryMonthLy.TileImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAABMFJREFUWEftmHtMW1UYwLs/1MQY9Q+3hQK9PDZN0CwY1AyBkbaXh9mcjIhxA2WA
+        UMHxuLfMbi4bj2xIxEBw0I1s1IlMhKk8utUOhZINEKKDAdsYW5VChRg1zD3YQyif5360plyuBjro+IMv
+        +YXvnn6X+8s5556eHtFyLLVYkxr+iHuG9FmJMsTT2vTgwktFP0Gly/0pVp5MMXQZxch/Ivk4xdIgyZCn
+        WsucE55pstUeLB3mztAqCUtXEZGrhElORohFE/TJinrYaye9VsKGREmU8gMSRq4jIiNCEv/HggqSefM4
+        kTgoYeh2Mky3hB44X1y2+/+1KtJ3hEOcEDDiqgiaE26KIJOrIpCxqk2HNxvqLvSQ+4H+4C2Iy8lAMo/k
+        we6KgjkRXcSCmyJwgkoPftKqtziC75flgV6vR4xGI4yOjs6Jyu9riWDQlGeCbLVVb3EEYwtYKNKokRPN
+        WtC2fwc9AxfhknEAcz695DOnCopj/WFV5POIa0IA91Ao0VbAl4YGzPmoT36+LDgD70QpPB0TjKxL3wi+
+        mZuhXF8N35z9FnM+mtM18xckayCQRRk8laEz2sM/ToJEzT7YUbF/Rrs9TnlJihsr4dr4dRi99jt4Z4Zh
+        m8/uV+HGnVvAhbqpatY9NtziAkD8+gsIlbgBPFOkcLDhM6hu0WLO5/Cp4/MXlOXHgcViQZnkYznYll1b
+        itfXb9+EdXsiZt1jQ2gOFtd/uvBzUNttQKG2K13gRXrRPPYbXhfoNIL1NlzsBMXxL6PEogiGFSTC1NQU
+        WKYskFunRrk/bozBM6qNgvU23ilUQdlxDaJva4aWrnayBl6GK4NGzPn0k/XRIUEOfV8rio3fu4N/s8gw
+        C9XZI921FaL3piCp6ixgyg/AqR+a4Ex3B+Z89J0GxwWjShgU4+Lm3XFYs/MVwTp7nDYHOQ41V6McN9Rc
+        xB3ZI1hnj9ME1+duhXsTf+McrDvXhIKXRn4GD2WIYL0N6a5tELPvPSTtUDYoNXmg62iGs+c7MOdzurPF
+        McGqDh1KGfo7IXB/DIpykV75oWC9jbc/YqGwvBSpaWqA+rZG6L7chy8Kl/PhNhLzFuTWwUnLJAq9qVZi
+        28nzLXg99OcomYvhs+6xITTEhbVHF3aIdT1nUKZneODftojiVGzjYu/Xn8yot2fRBT3YENhUmAwxh1Ug
+        z4+f8VmZoQb0va24iPO/p22sVcjAJ3YaP/Y1eFEVCWW6L6C2VY85n2ONJxybg47CqHOhTluP9PVfAKPp
+        Fxg2m8H8qxlzPsOk3amCLrHrYeUWX8Ql3h/ESYFQQjYLVc31mPMp1d7HOugIQnNwSW1YuR58ivQex3QP
+        BuB2a7oHyVaMRymRd6pgWkkW1NR+hfzY2wUXrvbD4JAJTOYhzPkMDpucK7jkf3a+xGyBcDYaeSN/B2wr
+        ZOZEaM52cE0Kur0yJfgxq55I5JK06VEJK0+VMHQ5+efnFuL4g2xSL5IXRMdBch3plTnhqghqcH93w2ar
+        mnD4Jfk95JYW8pxHhjyWiBcRcQORHhMS+S+cfvwmAtEK7lCSYmURRDab/OKrJ+ImiqEnloagcKzgDnko
+        RialWDlLqCD0kl6/u1QEBYM7BuZOX62Xy/EAQyT6B6HJeG0MDLEuAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="excelHistorySinle.TileImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAABMFJREFUWEftmHtMW1UYwLs/1MQY9Q+3hQK9PDZN0CwY1AyBkbaXh9mcjIhxA2WA

@@ -741,6 +741,12 @@ namespace MeTroUIDemo
         }
         private void ButtonSaveTicketType_Click(object sender, EventArgs e)
         {
+            string message = ticketRepository.sp_ValidateTicketTypesId(int.Parse(textBoxTypeId.Text), ConvertDateFormat(ApplyDayBox.Text));
+            if (message.Length > 0)
+            {
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (!ValidateAllFieldsTicketMenu())
             {
                 MessageBox.Show("Please fill in all fields correctly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -967,6 +973,12 @@ namespace MeTroUIDemo
 
         private void addCustomer_Click(object sender, EventArgs e)
         {
+            string message = customerRepository.sp_ValidateCustomerId(textBoxIdCustomer.Text);
+            if (message.Length > 0)
+            {
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (!ValidateRequiredFieldsCustomerId())
             {
                 MessageBox.Show("Please fill in all fields correctly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1887,6 +1899,13 @@ namespace MeTroUIDemo
 
         private void ButtonSaveTicketTypeSm_Click(object sender, EventArgs e)
         {
+            string message = ticketRepository.sp_ValidateTicketPricingId((int)comboBoxTicketTypeID.SelectedValue, (int)comboBoxShiftID.SelectedValue, ConvertDateFormat(ApplyDayBoxSubMenu.Text));
+            if (message.Length > 0)
+            {
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+                // You can choose to focus on the first control that requires attention or handle the error as you see fit.
+            }
             if (!ValidateAllFieldsTicketSubMenu())
             {
                 MessageBox.Show("Please fill in all fields correctly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -2160,6 +2179,15 @@ namespace MeTroUIDemo
         }
         private void addNewUser_Click(object sender, EventArgs e)
         {
+            string message = userRepository.sp_ValidateLoginName(textBoxUsername.Text);
+            if(message.Length > 0)
+            {
+                if (!ValidateRequiredFieldsLogin())
+                {
+                    MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
             if (!ValidateRequiredFieldsLogin())
             {
                 MessageBox.Show("Please fill in all fields correctly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -2536,7 +2564,12 @@ namespace MeTroUIDemo
 
         private void buttonAddCard_Click(object sender, EventArgs e)
         {
-
+            string message = cardRepository.sp_ValidateCardId(textBoxCardId.Text);
+            if(message.Length > 0)
+            {
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (!ValidateRequiredFieldsCardMenu())
             {
                 MessageBox.Show("Please fill in all fields correctly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -3249,6 +3282,12 @@ namespace MeTroUIDemo
 
         private void addLostVehicle_Click(object sender, EventArgs e)
         {
+            string message = handlingLostVehicleRepository.sp_ValidateUnitLostVehicleId(IncidentID.Text);
+            if(message.Length > 0)
+            {
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (!ValidateRequiredFieldsLostVehicle())
             {
                 MessageBox.Show("Please fill in all fields correctly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -3537,6 +3576,12 @@ namespace MeTroUIDemo
 
         private void addLostCard_Click(object sender, EventArgs e)
         {
+            string message = handlingLostCardRepository.sp_ValidateUnitLostCardId(LostCardID.Text);
+            if(message.Length > 0)
+            {
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (!ValidateRequiredFieldsLostCard())
             {
                 MessageBox.Show("Please fill in all fields correctly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -3559,6 +3604,12 @@ namespace MeTroUIDemo
 
         private void saveLostCard_Click(object sender, EventArgs e)
         {
+            //string message = handlingLostCardRepository.sp_ValidateUnitLostCardId(LostCardID.Text);
+            //if (message.Length > 0)
+            //{
+            //    MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             if (!ValidateRequiredFieldsLostCard())
             {
                 MessageBox.Show("Please fill in all fields correctly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -3619,6 +3670,149 @@ namespace MeTroUIDemo
         {
             userRepository.sp_DeleteHistoryInOut(timeVehicleIn, numberPlateVehicleIn);
             buttonReload.PerformClick();
+        }
+
+        private void numberOfMonth_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the pressed key is not a digit and not a control key (like backspace)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If the key is not a digit or a control key, suppress the key press event
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the pressed key is not a digit and not a control key (like backspace)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If the key is not a digit or a control key, suppress the key press event
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxMinPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the pressed key is not a digit and not a control key (like backspace)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If the key is not a digit or a control key, suppress the key press event
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxPriceTimeSlot_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the pressed key is not a digit and not a control key (like backspace)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If the key is not a digit or a control key, suppress the key press event
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxPriceOverTimeSlot_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the pressed key is not a digit and not a control key (like backspace)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If the key is not a digit or a control key, suppress the key press event
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxMonthLyPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the pressed key is not a digit and not a control key (like backspace)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If the key is not a digit or a control key, suppress the key press event
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxDayAlert_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the pressed key is not a digit and not a control key (like backspace)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If the key is not a digit or a control key, suppress the key press event
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxMinTime_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the pressed key is not a digit and not a control key (like backspace)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If the key is not a digit or a control key, suppress the key press event
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxTypeId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If the key is not a digit or a control key, suppress the key press event
+                e.Handled = true;
+            }
+        }
+
+        private void idTimeSlot_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If the key is not a digit or a control key, suppress the key press event
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxIdCustomer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If the key is not a digit or a control key, suppress the key press event
+                e.Handled = true;
+            }
+        }
+
+        private void PenaltyAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If the key is not a digit or a control key, suppress the key press event
+                e.Handled = true;
+            }
+        }
+
+        private void phone_number_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If the key is not a digit or a control key, suppress the key press event
+                e.Handled = true;
+            }
+        }
+
+        private void IncidentID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If the key is not a digit or a control key, suppress the key press event
+                e.Handled = true;
+            }
+        }
+
+        private void CompensationAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If the key is not a digit or a control key, suppress the key press event
+                e.Handled = true;
+            }
         }
     }
 }

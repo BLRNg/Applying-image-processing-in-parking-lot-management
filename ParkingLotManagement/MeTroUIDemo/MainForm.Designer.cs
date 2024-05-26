@@ -29,10 +29,25 @@ namespace MeTroUIDemo
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.homePage = new MetroFramework.Controls.MetroTabControl();
+            this.chartTabPage = new MetroFramework.Controls.MetroTabPage();
+            this.RealoadStatictis = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.isMonthlyTicket = new System.Windows.Forms.RadioButton();
+            this.isTimeSlot = new System.Windows.Forms.RadioButton();
+            this.isDay = new System.Windows.Forms.RadioButton();
+            this.isMonth = new System.Windows.Forms.RadioButton();
+            this.isYear = new System.Windows.Forms.RadioButton();
+            this.dateTimePickerToStatictis = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dateTimePickerFromStatictis = new System.Windows.Forms.DateTimePicker();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label1 = new System.Windows.Forms.Label();
+            this.closeChartStatisticButton = new MetroFramework.Controls.MetroButton();
             this.homeTabPage = new MetroFramework.Controls.MetroTabPage();
             this.paramSettingMenu = new MetroFramework.Controls.MetroTile();
             this.logOutBttn = new MetroFramework.Controls.MetroButton();
@@ -236,6 +251,7 @@ namespace MeTroUIDemo
             this.historyInOutTabPage = new MetroFramework.Controls.MetroTabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonDeletehistory = new System.Windows.Forms.Button();
             this.pictureBoxImagePlateOut = new System.Windows.Forms.PictureBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.pictureBoxImagePlateIn = new System.Windows.Forms.PictureBox();
@@ -270,21 +286,6 @@ namespace MeTroUIDemo
             this.label27 = new System.Windows.Forms.Label();
             this.dataGridViewCard = new System.Windows.Forms.DataGridView();
             this.closeDiaryLostTicketTabButton = new MetroFramework.Controls.MetroButton();
-            this.chartTabPage = new MetroFramework.Controls.MetroTabPage();
-            this.RealoadStatictis = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.isMonthlyTicket = new System.Windows.Forms.RadioButton();
-            this.isTimeSlot = new System.Windows.Forms.RadioButton();
-            this.isDay = new System.Windows.Forms.RadioButton();
-            this.isMonth = new System.Windows.Forms.RadioButton();
-            this.isYear = new System.Windows.Forms.RadioButton();
-            this.dateTimePickerToStatictis = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePickerFromStatictis = new System.Windows.Forms.DateTimePicker();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label1 = new System.Windows.Forms.Label();
-            this.closeChartStatisticButton = new MetroFramework.Controls.MetroButton();
             this.statictisTabPage = new MetroFramework.Controls.MetroTabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
@@ -349,16 +350,19 @@ namespace MeTroUIDemo
             this.closeTabGeneralStatisticButton = new MetroFramework.Controls.MetroButton();
             this.exportReportLostCard = new MetroFramework.Controls.MetroTile();
             this.paramSettingTabPage = new MetroFramework.Controls.MetroTabPage();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.buttonSaveParamSett = new MetroFramework.Controls.MetroButton();
             this.ButtonCloseParamSettingTab = new MetroFramework.Controls.MetroButton();
             this.groupBoxParamReader = new System.Windows.Forms.GroupBox();
             this.label96 = new System.Windows.Forms.Label();
             this.textBoxNameReaderOut = new System.Windows.Forms.TextBox();
             this.label97 = new System.Windows.Forms.Label();
             this.textBoxNameReaderIn = new System.Windows.Forms.TextBox();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.buttonSaveParamSett = new MetroFramework.Controls.MetroButton();
-            this.buttonDeletehistory = new System.Windows.Forms.Button();
             this.homePage.SuspendLayout();
+            this.chartTabPage.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.homeTabPage.SuspendLayout();
             this.customerListTabPage.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -403,10 +407,6 @@ namespace MeTroUIDemo
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistory)).BeginInit();
             this.diaryLostTicketTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCard)).BeginInit();
-            this.chartTabPage.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.statictisTabPage.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox13.SuspendLayout();
@@ -415,12 +415,13 @@ namespace MeTroUIDemo
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCardLost)).BeginInit();
             this.paramSettingTabPage.SuspendLayout();
-            this.groupBoxParamReader.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.groupBoxParamReader.SuspendLayout();
             this.SuspendLayout();
             // 
             // homePage
             // 
+            this.homePage.Controls.Add(this.userManagementTabPage);
             this.homePage.Controls.Add(this.chartTabPage);
             this.homePage.Controls.Add(this.homeTabPage);
             this.homePage.Controls.Add(this.customerListTabPage);
@@ -428,7 +429,6 @@ namespace MeTroUIDemo
             this.homePage.Controls.Add(this.overdueTabPage);
             this.homePage.Controls.Add(this.ticketPriceTimeSlotTabPage);
             this.homePage.Controls.Add(this.currentStatusTabPage);
-            this.homePage.Controls.Add(this.userManagementTabPage);
             this.homePage.Controls.Add(this.historyInOutTabPage);
             this.homePage.Controls.Add(this.diaryLostTicketTabPage);
             this.homePage.Controls.Add(this.statictisTabPage);
@@ -438,13 +438,198 @@ namespace MeTroUIDemo
             this.homePage.ItemSize = new System.Drawing.Size(50, 50);
             this.homePage.Location = new System.Drawing.Point(20, 60);
             this.homePage.Name = "homePage";
-            this.homePage.SelectedIndex = 7;
+            this.homePage.SelectedIndex = 3;
             this.homePage.Size = new System.Drawing.Size(1766, 897);
             this.homePage.TabIndex = 0;
             this.homePage.Theme = MetroFramework.MetroThemeStyle.Light;
             this.homePage.UseCustomBackColor = true;
             this.homePage.UseSelectable = true;
             this.homePage.SelectedIndexChanged += new System.EventHandler(this.homePage_SelectedIndexChanged);
+            // 
+            // chartTabPage
+            // 
+            this.chartTabPage.Controls.Add(this.RealoadStatictis);
+            this.chartTabPage.Controls.Add(this.groupBox1);
+            this.chartTabPage.Controls.Add(this.dateTimePickerToStatictis);
+            this.chartTabPage.Controls.Add(this.label4);
+            this.chartTabPage.Controls.Add(this.dateTimePickerFromStatictis);
+            this.chartTabPage.Controls.Add(this.panel3);
+            this.chartTabPage.Controls.Add(this.label1);
+            this.chartTabPage.Controls.Add(this.closeChartStatisticButton);
+            this.chartTabPage.HorizontalScrollbarBarColor = true;
+            this.chartTabPage.HorizontalScrollbarHighlightOnWheel = false;
+            this.chartTabPage.HorizontalScrollbarSize = 10;
+            this.chartTabPage.Location = new System.Drawing.Point(4, 54);
+            this.chartTabPage.Name = "chartTabPage";
+            this.chartTabPage.Size = new System.Drawing.Size(1758, 839);
+            this.chartTabPage.TabIndex = 3;
+            this.chartTabPage.Text = "Biểu đồ thống kê";
+            this.chartTabPage.VerticalScrollbarBarColor = true;
+            this.chartTabPage.VerticalScrollbarHighlightOnWheel = false;
+            this.chartTabPage.VerticalScrollbarSize = 10;
+            // 
+            // RealoadStatictis
+            // 
+            this.RealoadStatictis.Location = new System.Drawing.Point(1202, 19);
+            this.RealoadStatictis.Name = "RealoadStatictis";
+            this.RealoadStatictis.Size = new System.Drawing.Size(230, 49);
+            this.RealoadStatictis.TabIndex = 7;
+            this.RealoadStatictis.Text = "Reload";
+            this.RealoadStatictis.UseVisualStyleBackColor = true;
+            this.RealoadStatictis.Click += new System.EventHandler(this.RealoadStatictis_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.isMonthlyTicket);
+            this.groupBox1.Controls.Add(this.isTimeSlot);
+            this.groupBox1.Controls.Add(this.isDay);
+            this.groupBox1.Controls.Add(this.isMonth);
+            this.groupBox1.Controls.Add(this.isYear);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(638, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(552, 130);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thống kê vé lượt";
+            // 
+            // isMonthlyTicket
+            // 
+            this.isMonthlyTicket.AutoSize = true;
+            this.isMonthlyTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.isMonthlyTicket.Location = new System.Drawing.Point(378, 40);
+            this.isMonthlyTicket.Name = "isMonthlyTicket";
+            this.isMonthlyTicket.Size = new System.Drawing.Size(139, 34);
+            this.isMonthlyTicket.TabIndex = 18;
+            this.isMonthlyTicket.TabStop = true;
+            this.isMonthlyTicket.Text = "Vé tháng";
+            this.isMonthlyTicket.UseVisualStyleBackColor = true;
+            this.isMonthlyTicket.CheckedChanged += new System.EventHandler(this.isMonthlyTicket_CheckedChanged);
+            // 
+            // isTimeSlot
+            // 
+            this.isTimeSlot.AutoSize = true;
+            this.isTimeSlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.isTimeSlot.Location = new System.Drawing.Point(6, 40);
+            this.isTimeSlot.Name = "isTimeSlot";
+            this.isTimeSlot.Size = new System.Drawing.Size(152, 34);
+            this.isTimeSlot.TabIndex = 18;
+            this.isTimeSlot.TabStop = true;
+            this.isTimeSlot.Text = "Khung giờ";
+            this.isTimeSlot.UseVisualStyleBackColor = true;
+            this.isTimeSlot.CheckedChanged += new System.EventHandler(this.isTimeSlot_CheckedChanged);
+            // 
+            // isDay
+            // 
+            this.isDay.AutoSize = true;
+            this.isDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.isDay.Location = new System.Drawing.Point(6, 74);
+            this.isDay.Name = "isDay";
+            this.isDay.Size = new System.Drawing.Size(98, 34);
+            this.isDay.TabIndex = 19;
+            this.isDay.TabStop = true;
+            this.isDay.Text = "Ngày";
+            this.isDay.UseVisualStyleBackColor = true;
+            this.isDay.CheckedChanged += new System.EventHandler(this.isDay_CheckedChanged);
+            // 
+            // isMonth
+            // 
+            this.isMonth.AutoSize = true;
+            this.isMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.isMonth.Location = new System.Drawing.Point(189, 40);
+            this.isMonth.Name = "isMonth";
+            this.isMonth.Size = new System.Drawing.Size(110, 34);
+            this.isMonth.TabIndex = 20;
+            this.isMonth.TabStop = true;
+            this.isMonth.Text = "Tháng";
+            this.isMonth.UseVisualStyleBackColor = true;
+            this.isMonth.CheckedChanged += new System.EventHandler(this.isMonth_CheckedChanged);
+            // 
+            // isYear
+            // 
+            this.isYear.AutoSize = true;
+            this.isYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.isYear.Location = new System.Drawing.Point(189, 74);
+            this.isYear.Name = "isYear";
+            this.isYear.Size = new System.Drawing.Size(93, 34);
+            this.isYear.TabIndex = 21;
+            this.isYear.TabStop = true;
+            this.isYear.Text = "Năm";
+            this.isYear.UseVisualStyleBackColor = true;
+            this.isYear.CheckedChanged += new System.EventHandler(this.isYear_CheckedChanged);
+            // 
+            // dateTimePickerToStatictis
+            // 
+            this.dateTimePickerToStatictis.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerToStatictis.Location = new System.Drawing.Point(177, 92);
+            this.dateTimePickerToStatictis.Name = "dateTimePickerToStatictis";
+            this.dateTimePickerToStatictis.Size = new System.Drawing.Size(422, 41);
+            this.dateTimePickerToStatictis.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(19, 92);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(142, 36);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Đến ngày";
+            // 
+            // dateTimePickerFromStatictis
+            // 
+            this.dateTimePickerFromStatictis.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerFromStatictis.Location = new System.Drawing.Point(177, 16);
+            this.dateTimePickerFromStatictis.Name = "dateTimePickerFromStatictis";
+            this.dateTimePickerFromStatictis.Size = new System.Drawing.Size(422, 41);
+            this.dateTimePickerFromStatictis.TabIndex = 16;
+            this.dateTimePickerFromStatictis.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.chart1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 163);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1758, 676);
+            this.panel3.TabIndex = 5;
+            // 
+            // chart1
+            // 
+            chartArea15.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea15);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend15.Name = "Legend1";
+            this.chart1.Legends.Add(legend15);
+            this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Name = "chart1";
+            this.chart1.Size = new System.Drawing.Size(1758, 676);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 36);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Từ ngày";
+            // 
+            // closeChartStatisticButton
+            // 
+            this.closeChartStatisticButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeChartStatisticButton.Location = new System.Drawing.Point(1637, 3);
+            this.closeChartStatisticButton.Name = "closeChartStatisticButton";
+            this.closeChartStatisticButton.Size = new System.Drawing.Size(118, 39);
+            this.closeChartStatisticButton.TabIndex = 4;
+            this.closeChartStatisticButton.Text = "Đóng tab";
+            this.closeChartStatisticButton.UseSelectable = true;
+            this.closeChartStatisticButton.Click += new System.EventHandler(this.closeChartStatisticButton_Click);
             // 
             // homeTabPage
             // 
@@ -789,6 +974,7 @@ namespace MeTroUIDemo
             this.numberOfMonth.Size = new System.Drawing.Size(303, 35);
             this.numberOfMonth.TabIndex = 26;
             this.numberOfMonth.TextChanged += new System.EventHandler(this.numberOfMonth_TextChanged);
+            this.numberOfMonth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberOfMonth_KeyPress);
             // 
             // deleteRegisterCar
             // 
@@ -990,6 +1176,7 @@ namespace MeTroUIDemo
             this.textBoxIdCustomer.Name = "textBoxIdCustomer";
             this.textBoxIdCustomer.Size = new System.Drawing.Size(334, 37);
             this.textBoxIdCustomer.TabIndex = 24;
+            this.textBoxIdCustomer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxIdCustomer_KeyPress);
             // 
             // textBoxIdentityCustomer
             // 
@@ -1479,6 +1666,7 @@ namespace MeTroUIDemo
             this.CompensationAmount.Name = "CompensationAmount";
             this.CompensationAmount.Size = new System.Drawing.Size(264, 37);
             this.CompensationAmount.TabIndex = 49;
+            this.CompensationAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CompensationAmount_KeyPress);
             // 
             // label48
             // 
@@ -1574,6 +1762,7 @@ namespace MeTroUIDemo
             this.IncidentID.Name = "IncidentID";
             this.IncidentID.Size = new System.Drawing.Size(264, 37);
             this.IncidentID.TabIndex = 39;
+            this.IncidentID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IncidentID_KeyPress);
             // 
             // groupBox7
             // 
@@ -1939,6 +2128,7 @@ namespace MeTroUIDemo
             this.textBoxMonthLyPrice.Name = "textBoxMonthLyPrice";
             this.textBoxMonthLyPrice.Size = new System.Drawing.Size(429, 37);
             this.textBoxMonthLyPrice.TabIndex = 28;
+            this.textBoxMonthLyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxMonthLyPrice_KeyPress);
             // 
             // label12
             // 
@@ -2083,6 +2273,7 @@ namespace MeTroUIDemo
             this.textBoxPriceOverTimeSlot.Name = "textBoxPriceOverTimeSlot";
             this.textBoxPriceOverTimeSlot.Size = new System.Drawing.Size(279, 35);
             this.textBoxPriceOverTimeSlot.TabIndex = 28;
+            this.textBoxPriceOverTimeSlot.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPriceOverTimeSlot_KeyPress);
             // 
             // textBoxPriceTimeSlot
             // 
@@ -2091,6 +2282,7 @@ namespace MeTroUIDemo
             this.textBoxPriceTimeSlot.Name = "textBoxPriceTimeSlot";
             this.textBoxPriceTimeSlot.Size = new System.Drawing.Size(303, 35);
             this.textBoxPriceTimeSlot.TabIndex = 27;
+            this.textBoxPriceTimeSlot.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPriceTimeSlot_KeyPress);
             // 
             // textBoxMinPrice
             // 
@@ -2099,6 +2291,7 @@ namespace MeTroUIDemo
             this.textBoxMinPrice.Name = "textBoxMinPrice";
             this.textBoxMinPrice.Size = new System.Drawing.Size(279, 35);
             this.textBoxMinPrice.TabIndex = 26;
+            this.textBoxMinPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxMinPrice_KeyPress);
             // 
             // textBoxPrice
             // 
@@ -2107,6 +2300,7 @@ namespace MeTroUIDemo
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(303, 35);
             this.textBoxPrice.TabIndex = 25;
+            this.textBoxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPrice_KeyPress);
             // 
             // dataGridTicketPriceByTimeSlot
             // 
@@ -2209,6 +2403,7 @@ namespace MeTroUIDemo
             this.textBoxTypeId.Name = "textBoxTypeId";
             this.textBoxTypeId.Size = new System.Drawing.Size(334, 37);
             this.textBoxTypeId.TabIndex = 24;
+            this.textBoxTypeId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTypeId_KeyPress);
             // 
             // textBoxDayAlert
             // 
@@ -2217,6 +2412,7 @@ namespace MeTroUIDemo
             this.textBoxDayAlert.Name = "textBoxDayAlert";
             this.textBoxDayAlert.Size = new System.Drawing.Size(334, 37);
             this.textBoxDayAlert.TabIndex = 23;
+            this.textBoxDayAlert.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDayAlert_KeyPress);
             // 
             // textBoxMinTime
             // 
@@ -2226,6 +2422,7 @@ namespace MeTroUIDemo
             this.textBoxMinTime.Size = new System.Drawing.Size(334, 37);
             this.textBoxMinTime.TabIndex = 22;
             this.textBoxMinTime.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBoxMinTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxMinTime_KeyPress);
             // 
             // textBoxTicketName
             // 
@@ -2407,6 +2604,7 @@ namespace MeTroUIDemo
             this.idTimeSlot.Name = "idTimeSlot";
             this.idTimeSlot.Size = new System.Drawing.Size(334, 37);
             this.idTimeSlot.TabIndex = 25;
+            this.idTimeSlot.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.idTimeSlot_KeyPress);
             // 
             // label23
             // 
@@ -2826,6 +3024,16 @@ namespace MeTroUIDemo
             this.panel2.Size = new System.Drawing.Size(1758, 256);
             this.panel2.TabIndex = 21;
             // 
+            // buttonDeletehistory
+            // 
+            this.buttonDeletehistory.Location = new System.Drawing.Point(1565, 179);
+            this.buttonDeletehistory.Name = "buttonDeletehistory";
+            this.buttonDeletehistory.Size = new System.Drawing.Size(190, 49);
+            this.buttonDeletehistory.TabIndex = 20;
+            this.buttonDeletehistory.Text = "Delete";
+            this.buttonDeletehistory.UseVisualStyleBackColor = true;
+            this.buttonDeletehistory.Click += new System.EventHandler(this.buttonDeletehistory_Click);
+            // 
             // pictureBoxImagePlateOut
             // 
             this.pictureBoxImagePlateOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -3211,191 +3419,6 @@ namespace MeTroUIDemo
             this.closeDiaryLostTicketTabButton.UseSelectable = true;
             this.closeDiaryLostTicketTabButton.Click += new System.EventHandler(this.closeDiaryLostTicketTabButton_Click);
             // 
-            // chartTabPage
-            // 
-            this.chartTabPage.Controls.Add(this.RealoadStatictis);
-            this.chartTabPage.Controls.Add(this.groupBox1);
-            this.chartTabPage.Controls.Add(this.dateTimePickerToStatictis);
-            this.chartTabPage.Controls.Add(this.label4);
-            this.chartTabPage.Controls.Add(this.dateTimePickerFromStatictis);
-            this.chartTabPage.Controls.Add(this.panel3);
-            this.chartTabPage.Controls.Add(this.label1);
-            this.chartTabPage.Controls.Add(this.closeChartStatisticButton);
-            this.chartTabPage.HorizontalScrollbarBarColor = true;
-            this.chartTabPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.chartTabPage.HorizontalScrollbarSize = 10;
-            this.chartTabPage.Location = new System.Drawing.Point(4, 54);
-            this.chartTabPage.Name = "chartTabPage";
-            this.chartTabPage.Size = new System.Drawing.Size(1758, 839);
-            this.chartTabPage.TabIndex = 3;
-            this.chartTabPage.Text = "Biểu đồ thống kê";
-            this.chartTabPage.VerticalScrollbarBarColor = true;
-            this.chartTabPage.VerticalScrollbarHighlightOnWheel = false;
-            this.chartTabPage.VerticalScrollbarSize = 10;
-            // 
-            // RealoadStatictis
-            // 
-            this.RealoadStatictis.Location = new System.Drawing.Point(1202, 19);
-            this.RealoadStatictis.Name = "RealoadStatictis";
-            this.RealoadStatictis.Size = new System.Drawing.Size(230, 49);
-            this.RealoadStatictis.TabIndex = 7;
-            this.RealoadStatictis.Text = "Reload";
-            this.RealoadStatictis.UseVisualStyleBackColor = true;
-            this.RealoadStatictis.Click += new System.EventHandler(this.RealoadStatictis_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.isMonthlyTicket);
-            this.groupBox1.Controls.Add(this.isTimeSlot);
-            this.groupBox1.Controls.Add(this.isDay);
-            this.groupBox1.Controls.Add(this.isMonth);
-            this.groupBox1.Controls.Add(this.isYear);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(638, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(552, 130);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thống kê vé lượt";
-            // 
-            // isMonthlyTicket
-            // 
-            this.isMonthlyTicket.AutoSize = true;
-            this.isMonthlyTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.isMonthlyTicket.Location = new System.Drawing.Point(378, 40);
-            this.isMonthlyTicket.Name = "isMonthlyTicket";
-            this.isMonthlyTicket.Size = new System.Drawing.Size(139, 34);
-            this.isMonthlyTicket.TabIndex = 18;
-            this.isMonthlyTicket.TabStop = true;
-            this.isMonthlyTicket.Text = "Vé tháng";
-            this.isMonthlyTicket.UseVisualStyleBackColor = true;
-            this.isMonthlyTicket.CheckedChanged += new System.EventHandler(this.isMonthlyTicket_CheckedChanged);
-            // 
-            // isTimeSlot
-            // 
-            this.isTimeSlot.AutoSize = true;
-            this.isTimeSlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.isTimeSlot.Location = new System.Drawing.Point(6, 40);
-            this.isTimeSlot.Name = "isTimeSlot";
-            this.isTimeSlot.Size = new System.Drawing.Size(152, 34);
-            this.isTimeSlot.TabIndex = 18;
-            this.isTimeSlot.TabStop = true;
-            this.isTimeSlot.Text = "Khung giờ";
-            this.isTimeSlot.UseVisualStyleBackColor = true;
-            this.isTimeSlot.CheckedChanged += new System.EventHandler(this.isTimeSlot_CheckedChanged);
-            // 
-            // isDay
-            // 
-            this.isDay.AutoSize = true;
-            this.isDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.isDay.Location = new System.Drawing.Point(6, 74);
-            this.isDay.Name = "isDay";
-            this.isDay.Size = new System.Drawing.Size(98, 34);
-            this.isDay.TabIndex = 19;
-            this.isDay.TabStop = true;
-            this.isDay.Text = "Ngày";
-            this.isDay.UseVisualStyleBackColor = true;
-            this.isDay.CheckedChanged += new System.EventHandler(this.isDay_CheckedChanged);
-            // 
-            // isMonth
-            // 
-            this.isMonth.AutoSize = true;
-            this.isMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.isMonth.Location = new System.Drawing.Point(189, 40);
-            this.isMonth.Name = "isMonth";
-            this.isMonth.Size = new System.Drawing.Size(110, 34);
-            this.isMonth.TabIndex = 20;
-            this.isMonth.TabStop = true;
-            this.isMonth.Text = "Tháng";
-            this.isMonth.UseVisualStyleBackColor = true;
-            this.isMonth.CheckedChanged += new System.EventHandler(this.isMonth_CheckedChanged);
-            // 
-            // isYear
-            // 
-            this.isYear.AutoSize = true;
-            this.isYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.isYear.Location = new System.Drawing.Point(189, 74);
-            this.isYear.Name = "isYear";
-            this.isYear.Size = new System.Drawing.Size(93, 34);
-            this.isYear.TabIndex = 21;
-            this.isYear.TabStop = true;
-            this.isYear.Text = "Năm";
-            this.isYear.UseVisualStyleBackColor = true;
-            this.isYear.CheckedChanged += new System.EventHandler(this.isYear_CheckedChanged);
-            // 
-            // dateTimePickerToStatictis
-            // 
-            this.dateTimePickerToStatictis.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerToStatictis.Location = new System.Drawing.Point(177, 92);
-            this.dateTimePickerToStatictis.Name = "dateTimePickerToStatictis";
-            this.dateTimePickerToStatictis.Size = new System.Drawing.Size(422, 41);
-            this.dateTimePickerToStatictis.TabIndex = 17;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(19, 92);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 36);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Đến ngày";
-            // 
-            // dateTimePickerFromStatictis
-            // 
-            this.dateTimePickerFromStatictis.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerFromStatictis.Location = new System.Drawing.Point(177, 16);
-            this.dateTimePickerFromStatictis.Name = "dateTimePickerFromStatictis";
-            this.dateTimePickerFromStatictis.Size = new System.Drawing.Size(422, 41);
-            this.dateTimePickerFromStatictis.TabIndex = 16;
-            this.dateTimePickerFromStatictis.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.chart1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 163);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1758, 676);
-            this.panel3.TabIndex = 5;
-            // 
-            // chart1
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(0, 0);
-            this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(1758, 676);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 36);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Từ ngày";
-            // 
-            // closeChartStatisticButton
-            // 
-            this.closeChartStatisticButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeChartStatisticButton.Location = new System.Drawing.Point(1637, 3);
-            this.closeChartStatisticButton.Name = "closeChartStatisticButton";
-            this.closeChartStatisticButton.Size = new System.Drawing.Size(118, 39);
-            this.closeChartStatisticButton.TabIndex = 4;
-            this.closeChartStatisticButton.Text = "Đóng tab";
-            this.closeChartStatisticButton.UseSelectable = true;
-            this.closeChartStatisticButton.Click += new System.EventHandler(this.closeChartStatisticButton_Click);
-            // 
             // statictisTabPage
             // 
             this.statictisTabPage.Controls.Add(this.groupBox6);
@@ -3762,6 +3785,7 @@ namespace MeTroUIDemo
             this.phone_number.Name = "phone_number";
             this.phone_number.Size = new System.Drawing.Size(264, 37);
             this.phone_number.TabIndex = 41;
+            this.phone_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phone_number_KeyPress);
             // 
             // label81
             // 
@@ -3922,6 +3946,7 @@ namespace MeTroUIDemo
             this.PenaltyAmount.Name = "PenaltyAmount";
             this.PenaltyAmount.Size = new System.Drawing.Size(264, 37);
             this.PenaltyAmount.TabIndex = 43;
+            this.PenaltyAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PenaltyAmount_KeyPress);
             // 
             // label77
             // 
@@ -4098,6 +4123,28 @@ namespace MeTroUIDemo
             this.paramSettingTabPage.VerticalScrollbarHighlightOnWheel = false;
             this.paramSettingTabPage.VerticalScrollbarSize = 10;
             // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.buttonSaveParamSett);
+            this.panel11.Controls.Add(this.ButtonCloseParamSettingTab);
+            this.panel11.Controls.Add(this.groupBoxParamReader);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(1758, 839);
+            this.panel11.TabIndex = 7;
+            // 
+            // buttonSaveParamSett
+            // 
+            this.buttonSaveParamSett.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSaveParamSett.Location = new System.Drawing.Point(1591, 786);
+            this.buttonSaveParamSett.Name = "buttonSaveParamSett";
+            this.buttonSaveParamSett.Size = new System.Drawing.Size(118, 39);
+            this.buttonSaveParamSett.TabIndex = 45;
+            this.buttonSaveParamSett.Text = "Lưu";
+            this.buttonSaveParamSett.UseSelectable = true;
+            this.buttonSaveParamSett.Click += new System.EventHandler(this.buttonSaveParamSett_Click);
+            // 
             // ButtonCloseParamSettingTab
             // 
             this.ButtonCloseParamSettingTab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -4161,38 +4208,6 @@ namespace MeTroUIDemo
             this.textBoxNameReaderIn.Size = new System.Drawing.Size(1063, 37);
             this.textBoxNameReaderIn.TabIndex = 39;
             // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.buttonSaveParamSett);
-            this.panel11.Controls.Add(this.ButtonCloseParamSettingTab);
-            this.panel11.Controls.Add(this.groupBoxParamReader);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(0, 0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1758, 839);
-            this.panel11.TabIndex = 7;
-            // 
-            // buttonSaveParamSett
-            // 
-            this.buttonSaveParamSett.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSaveParamSett.Location = new System.Drawing.Point(1591, 786);
-            this.buttonSaveParamSett.Name = "buttonSaveParamSett";
-            this.buttonSaveParamSett.Size = new System.Drawing.Size(118, 39);
-            this.buttonSaveParamSett.TabIndex = 45;
-            this.buttonSaveParamSett.Text = "Lưu";
-            this.buttonSaveParamSett.UseSelectable = true;
-            this.buttonSaveParamSett.Click += new System.EventHandler(this.buttonSaveParamSett_Click);
-            // 
-            // buttonDeletehistory
-            // 
-            this.buttonDeletehistory.Location = new System.Drawing.Point(1565, 179);
-            this.buttonDeletehistory.Name = "buttonDeletehistory";
-            this.buttonDeletehistory.Size = new System.Drawing.Size(190, 49);
-            this.buttonDeletehistory.TabIndex = 20;
-            this.buttonDeletehistory.Text = "Delete";
-            this.buttonDeletehistory.UseVisualStyleBackColor = true;
-            this.buttonDeletehistory.Click += new System.EventHandler(this.buttonDeletehistory_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -4203,6 +4218,12 @@ namespace MeTroUIDemo
             this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.homePage.ResumeLayout(false);
+            this.chartTabPage.ResumeLayout(false);
+            this.chartTabPage.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.homeTabPage.ResumeLayout(false);
             this.customerListTabPage.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -4261,12 +4282,6 @@ namespace MeTroUIDemo
             this.diaryLostTicketTabPage.ResumeLayout(false);
             this.diaryLostTicketTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCard)).EndInit();
-            this.chartTabPage.ResumeLayout(false);
-            this.chartTabPage.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.statictisTabPage.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox13.ResumeLayout(false);
@@ -4279,9 +4294,9 @@ namespace MeTroUIDemo
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCardLost)).EndInit();
             this.paramSettingTabPage.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
             this.groupBoxParamReader.ResumeLayout(false);
             this.groupBoxParamReader.PerformLayout();
-            this.panel11.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
